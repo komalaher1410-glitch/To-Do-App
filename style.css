@@ -1,0 +1,320 @@
+/* Reset */
+*, *::before, *::after { 
+box-sizing: border-box; 
+margin: 0; 
+padding: 0; 
+}
+
+/* Theme variables */
+:root {
+  --bg: #0e0e10;
+  --card: #17171a;
+  --card2: #1e1e22;
+  --border: #2a2a30;
+  --ink: #f0eff5;
+  --ink-sub: #7b7a85;
+  --ink-dim: #3a3a42;
+  --green: #3dd68c;
+  --green-dim: rgba(61,214,140,0.12);
+  --red: #ff5e5e;
+  --yellow: #f5c842;
+  --radius: 14px;
+}
+
+/* Animated background */
+body{
+font-family:'Epilogue',sans-serif;
+color:var(--ink);
+display:flex;
+justify-content:center;
+padding:48px 16px;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+background-size:400% 400%;
+animation:bgMove 12s ease infinite;
+}
+
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* App Card */
+.app{
+max-width:560px;
+width:100%;
+padding:30px;
+border-radius:20px;
+background:rgba(255,255,255,0.04);
+backdrop-filter:blur(12px);
+box-shadow:0 15px 40px rgba(0,0,0,0.4);
+}
+
+/* Brand */
+.brand{
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:20px;
+}
+
+.brand-icon{
+background:var(--green);
+width:40px;
+height:40px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:10px;
+}
+
+/* Title */
+h1{
+font-family:'Syne',sans-serif;
+font-weight:800;
+font-size:28px;
+background:linear-gradient(45deg,#3dd68c,#7ef5bb);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+/* Theme Button */
+.theme-btn{
+margin-left:auto;
+background:#222;
+border:none;
+color:white;
+padding:8px 12px;
+border-radius:8px;
+cursor:pointer;
+font-size:14px;
+transition:0.3s;
+}
+
+.theme-btn:hover{
+background:#3dd68c;
+color:black;
+}
+
+/* Task counter */
+.task-counter{
+background:#3dd68c;
+color:black;
+padding:4px 10px;
+border-radius:20px;
+font-size:12px;
+font-weight:bold;
+}
+
+/* Input */
+.input-wrap{
+display:flex;
+gap:10px;
+margin-top:20px;
+}
+
+.task-input{
+flex:1;
+padding:12px;
+border-radius:10px;
+border:1px solid var(--border);
+background:var(--card);
+color:white;
+transition:0.3s;
+}
+
+.task-input:focus{
+border-color:#3dd68c;
+box-shadow:0 0 8px rgba(61,214,140,0.5);
+}
+
+/* Add Button */
+.add-btn{
+background:linear-gradient(135deg,#3dd68c,#1bb76e);
+border:none;
+padding:12px 16px;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
+color:white;
+transition:0.3s;
+}
+
+.add-btn:hover{
+transform:translateY(-2px);
+box-shadow:0 6px 18px rgba(61,214,140,0.4);
+}
+
+/* Filters */
+.filter-row{
+margin-top:20px;
+display:flex;
+gap:6px;
+flex-wrap:wrap;
+}
+
+.filter-btn{
+border:1px solid var(--border);
+background:transparent;
+color:var(--ink-sub);
+padding:6px 12px;
+border-radius:20px;
+cursor:pointer;
+transition:0.25s;
+}
+
+.filter-btn:hover{
+transform:translateY(-2px);
+}
+
+.filter-btn.active{
+background:var(--green-dim);
+color:var(--green);
+border-color:var(--green);
+}
+
+/* Task list */
+.task-list{
+margin-top:20px;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+/* Task card */
+.task-item{
+display:flex;
+align-items:center;
+gap:10px;
+padding:12px;
+background:var(--card);
+border:1px solid var(--border);
+border-radius:12px;
+transition:0.25s;
+animation:taskAppear 0.4s ease;
+}
+
+.task-item:hover{
+transform:scale(1.02);
+box-shadow:0 8px 18px rgba(0,0,0,0.4);
+}
+
+@keyframes taskAppear{
+from{
+opacity:0;
+transform:translateY(10px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.task-item.done{
+opacity:0.5;
+text-decoration:line-through;
+}
+
+/* Checkbox */
+.task-check{
+width:18px;
+height:18px;
+cursor:pointer;
+accent-color:#3dd68c;
+}
+
+/* Actions */
+.actions{
+margin-left:auto;
+display:flex;
+gap:5px;
+}
+
+.action-btn{
+border:none;
+background:none;
+cursor:pointer;
+font-size:16px;
+transition:0.2s;
+}
+
+.action-btn:hover{
+transform:scale(1.2);
+}
+
+/* Priority dot */
+.priority-dot{
+width:7px;
+height:7px;
+border-radius:50%;
+}
+
+.p-high{background:red;}
+.p-medium{background:yellow;}
+.p-low{background:green;}
+
+/* Empty state */
+.empty{
+text-align:center;
+margin-top:40px;
+color:var(--ink-sub);
+display:none;
+}
+
+/* Footer */
+.footer{
+margin-top:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+/* Clear button */
+.clear-btn{
+background:rgba(255,94,94,0.15);
+color:#ff5e5e;
+border:none;
+padding:6px 12px;
+border-radius:8px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.clear-btn:hover{
+background:#ff5e5e;
+color:white;
+transform:scale(1.05);
+}
+
+/* Toast */
+.toast{
+position:fixed;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+background:#222;
+padding:10px 20px;
+border-radius:20px;
+opacity:0;
+transition:0.3s;
+box-shadow:0 8px 20px rgba(0,0,0,0.5);
+}
+
+.toast.show{
+opacity:1;
+}
+
+/* Light Mode */
+body.light{
+background:#f5f7fb;
+color:#222;
+}
+
+body.light .app{
+background:white;
+}
+
+body.light .task-item{
+background:#fff;
+color:#222;
+}

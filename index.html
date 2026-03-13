@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Taskly</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Epilogue:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="brand">
+      <div class="brand-icon">✅</div>
+
+      <h1>
+        Taskly 
+        <span class="task-counter" id="taskCounter">0</span>
+      </h1>
+
+      <button id="themeToggle" class="theme-btn">🌙</button>
+    </div>
+
+    <div class="date-line" id="dateLine"></div>
+
+    <!-- Progress -->
+    <div class="progress-wrap">
+      <div class="progress-labels">
+        <span class="progress-title">Today's Progress</span>
+        <span class="progress-pct" id="pct">0%</span>
+      </div>
+
+      <div class="bar-bg">
+        <div class="bar-fill" id="barFill"></div>
+      </div>
+
+      <div class="progress-stats">
+        <div class="stat">✅ <strong id="doneN">0</strong> completed</div>
+        <div class="stat">⏳ <strong id="leftN">0</strong> remaining</div>
+        <div class="stat">📋 <strong id="totalN">0</strong> total</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Input Section -->
+  <div class="input-section">
+    <div class="input-wrap">
+      <input 
+        class="task-input" 
+        id="taskInput" 
+        type="text" 
+        placeholder="✏️ What needs to be done?" 
+        maxlength="120"
+      />
+
+      <select class="priority-select" id="prioritySelect">
+        <option value="low">🟢 Low</option>
+        <option value="medium" selected>🟡 Medium</option>
+        <option value="high">🔴 High</option>
+      </select>
+
+      <button class="add-btn" id="addBtn">➕ <span>Add Task</span></button>
+    </div>
+  </div>
+
+  <!-- Filters -->
+  <div class="filter-row">
+    <button class="filter-btn active" data-filter="all">🗂 All</button>
+    <button class="filter-btn" data-filter="active">⏳ Active</button>
+    <button class="filter-btn" data-filter="done">✅ Done</button>
+    <button class="filter-btn" data-filter="high">🔴 High</button>
+  </div>
+
+  <!-- Task List -->
+  <div class="task-list" id="taskList"></div>
+
+  <!-- Empty State -->
+  <div class="empty" id="emptyState">
+    <div class="empty-emoji">🌙</div>
+    <div class="empty-title">All clear!</div>
+    <div class="empty-sub">Add a task above to get going.</div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-left" id="footerMsg"></div>
+    <div>
+      <button class="clear-btn" id="clearBtn">🗑 Clear completed</button>
+      <button class="clear-btn" id="resetApp">🔄 Reset App</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- Toast Notification -->
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
